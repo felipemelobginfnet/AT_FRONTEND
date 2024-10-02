@@ -99,9 +99,9 @@ if menu == "Dados dos Jogadores":
     eventos_filtrados1 = eventos_jogador1[(eventos_jogador1["minute"] >= intervalo_tempo[0]) & (eventos_jogador1["minute"] <= intervalo_tempo[1])]
     eventos_filtrados2 = eventos_jogador2[(eventos_jogador2["minute"] >= intervalo_tempo[0]) & (eventos_jogador2["minute"] <= intervalo_tempo[1])]
     st.write(f"Eventos de {jogador1} entre {intervalo_tempo[0]} e {intervalo_tempo[1]} minutos")
-    st.dataframe(eventos_filtrados1[["minute", "type", "location", "player", "team"]])
+    st.dataframe(eventos_filtrados1[["minute", "type", "player", "team"]])
     st.write(f"Eventos de {jogador2} entre {intervalo_tempo[0]} e {intervalo_tempo[1]} minutos")
-    st.dataframe(eventos_filtrados2[["minute", "type", "location", "player", "team"]])
+    st.dataframe(eventos_filtrados2[["minute", "type", "player", "team"]])
     st.download_button(f"Baixar dados de {jogador1} em CSV", eventos_filtrados1.to_csv(), file_name=f"{jogador1}_eventos.csv")
     st.download_button(f"Baixar dados de {jogador2} em CSV", eventos_filtrados2.to_csv(), file_name=f"{jogador2}_eventos.csv")
 
